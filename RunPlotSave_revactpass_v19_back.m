@@ -298,8 +298,22 @@ for session=start_session:start_session+numsessions-1
 
     % data acquisition started in background, stop after it finishes
     % pause to make sure new session is really started
-    pause(20)
-    pulser_daq_session.wait()
+    % pause(20)
+    % pulser_daq_session.wait()
+    
+    pause(5)
+    if ~pulser_daq_session.IsRunning
+        pulser_daq_session.IsRunning
+        pause(1)    
+    elseif pulser_daq_session.IsRunning
+        pulser_daq_session.IsRunning
+        display('Waiting for session to complete')
+        wait(pulser_daq_session)
+        display('Session is complete')
+        
+    end
+    
+    
     % pulser_daq_session.stop;
     delete(lh); % delete listener inside the session
     fclose(fid1); % close the log file where data saved

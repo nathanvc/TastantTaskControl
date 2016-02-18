@@ -15,7 +15,7 @@ clear all
 % do not email regenerated figure results
 % (can change this if running same day, otherwise will send figs out of
 % order to evernote notebooks)
-email=0;
+email=1;
 
 display('For which date do you need to reprocess pooled data?')
 DateTag=input('(format YYYY-MM-DD, including a zero in 1st digit for M/D if needed) : ', 's');
