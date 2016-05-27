@@ -6,7 +6,7 @@
 % tags saved files with "regen" so we know they were calculated after
 % initial run
 
-function runsave_pooled_analysis_5box_toneonly_blank_regen(rawdatafiles_all, ActiveBoxes, MouseTags, time_params, datadir, datasavedir, figdir_pool, SessionTag, TypeTrial, NotebookTag, Notebook, matlabfile, email, timetag_ids,run_analysis)
+function runsave_pooled_analysis_5box_toneonly_blank_regen_diffblocks(rawdatafiles_all, ActiveBoxes, MouseTags, time_params, datadir, datasavedir, figdir_pool, SessionTag, TypeTrial, NotebookTag, Notebook, matlabfile, email, timetag_ids,run_analysis)
 
 numbox=length(ActiveBoxes)
 
@@ -27,12 +27,16 @@ for i=1:numbox
         
         load(rawdatafiles_all{session},'data_rawdaq','ActiveBoxes','pulser');
         %timetag=timetag_ids{session};
+        ActiveBoxes
+        numbox=length(ActiveBoxes)
         
         % pull out data for just one box, multiply digital channels by
         % 5, keep same order (with raw lick 3rd from end) as older data
         % (this format is for set up with 4 boxes, digital acquisition
         % for all except raw lick), box 5 has analog channels, and is
         % recorded first if included, so has to be handled separately
+        
+        length(data_rawdaq)
         
         if ismember(5,ActiveBoxes)
             if Box<5
@@ -45,7 +49,10 @@ for i=1:numbox
         end
         
         data=data_indivbox;        
-        SessionBox(session)=Box;
+        SessionBox(session)=Box
+        
+        figure
+        plot(data)
         
         %-- this info is all in the raw data file, but I rely on this
         % for other posthoc analysis so keeping it here
@@ -55,6 +62,8 @@ for i=1:numbox
         
         % Perform post-hoc processing on this trial for this mouse
         %---------
+        rawdatafiles_all{session}
+        size(data)
         % dataproc=dataproc_timeout_format_rev(data,pulser,1,timetag,MouseTag,datafile,time_params);
         % dataproc=dataproc_timeout_format_rev_tn(data,pulser,1,timetag,MouseTag,rawdatafiles_all{session},time_params);
         %dataproc=dataproc_timeout_format_rev_tn_all(data,pulser,1,timetag,MouseTag,rawdatafiles_all{session},time_params);

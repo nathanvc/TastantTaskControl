@@ -182,7 +182,7 @@ end
 % for that box (each entry is the matlab id for that camera in the box of
 % that index, e.g. for [1 3 2 0] -- box 1 contains camera 1, box 2 contains
 % camera 3, box 3 contains camera 2, and box 4 contains no camera
-camvect=[1 0 0 2 0];
+camvect=[2 0 0 1 0];
 % only set up video for active boxes with camera
 camboxes=intersect(ActiveBoxes,find(camvect>0));
 

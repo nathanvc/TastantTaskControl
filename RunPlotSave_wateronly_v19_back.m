@@ -6,7 +6,7 @@
 % Specific installation for Multi-Tastant Lickometry Task
 % Several features (number of boxes, channels for DAQ acquisition, 
 % e-mail updates for figures during acquisition) are customized to the 
-% Brown Multi-Tastant rig so will not work out of the box in another set-up
+% Brown Multi-Tastant rig so will not work out ofRunPlotSave_wateronly_v19_back the box in another set-up
 % requires pulser
 % V19 revision 1/2016, revise for github and syncing across machines
 % requires pulser and some other files not included here
@@ -189,7 +189,7 @@ end
 % for that box (each entry is the matlab id for that camera in the box of
 % that index, e.g. for [1 3 2 0] -- box 1 contains camera 1, box 2 contains
 % camera 3, box 3 contains camera 2, and box 4 contains no camera
-camvect=[1 0 0 2 0];
+camvect=[2 0 0 1 0];
 % only set up video for active boxes with camera
 camboxes=intersect(ActiveBoxes,find(camvect>0));
 

@@ -1,4 +1,4 @@
-% Multi-Tastant Task
+  % Multi-Tastant Task
 % Nathan V-C  5/2014-1/2016
 % ----------------------
 % Control script that runs the combined active/passive MultiTastant Task
@@ -34,6 +34,14 @@ matlabfile=mfilename;
 NotebookTag='Reversal Act/Pass Water Sugar Quinine'; % controls notebook saved as in evernote
 TypeTrial='RevActPass'; %used for saving figs
 Notebook='TastantTask';
+
+% % Filenames and tags for saving, and sending figures to Evernote
+% %----------
+% SessionTag='actpass';
+% matlabfile=mfilename;
+% NotebookTag='Combined Act/Pass Water Sugar Quinine'; % controls notebook saved as in evernote
+% TypeTrial='ActPass'; %used for saving figs
+% Notebook='TastantTask';
 
 % Take time point of run (before set up) to save files without overwriting
 [~,timetag]=betterclock;  % formatted timesamp (string with always same number of characters)
@@ -153,7 +161,7 @@ numbox=length(ActiveBoxes);
 % active, passive, trials, including catch for tone-only
 % 'actpass_cb' - tone 2 with glucose, tone 1 qith quin, including
 % active, passive, trials, including catch for tone-only
-%---------
+% ---------
 % Tr_type='activepassive';
 Tr_type='actpass_cb';
 
@@ -302,17 +310,21 @@ for session=start_session:start_session+numsessions-1
     % pulser_daq_session.wait()
     
     pause(5)
-    if ~pulser_daq_session.IsRunning
+    while ~pulser_daq_session.IsRunning
         pulser_daq_session.IsRunning
-        pause(1)    
-    elseif pulser_daq_session.IsRunning
-        pulser_daq_session.IsRunning
-        display('Waiting for session to complete')
-        wait(pulser_daq_session)
-        display('Session is complete')
-        
+        pause(1) 
     end
-    
+    display('Waiting for session to complete')
+%     elseif pulser_daq_session.IsRunning
+%         pulser_daq_session.IsRunning
+%        
+%         wait(pulser_daq_session)
+%         display('Session is complete')    
+%     end
+    while pulser_daq_session.IsRunning
+        pause(5)
+    end
+    display('Session is complete') 
     
     % pulser_daq_session.stop;
     delete(lh); % delete listener inside the session

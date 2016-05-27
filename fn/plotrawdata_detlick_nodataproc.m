@@ -12,4 +12,5 @@ plot(tv,data(:,7),'color','black')
 %plot(dataproc.timevect(dataproc.elick_ind.all), 2*ones(size(dataproc.elick_ind.all)),'*','color','magenta','markersize',10);
 xlabel('Time(sec)','fontsize',12)
 ylabel('Voltage','fontsize',12)
+ylim([-0.5 5.5])
 
