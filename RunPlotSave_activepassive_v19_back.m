@@ -44,8 +44,8 @@ Notebook='TastantTask';
 % If you still get error, set the email tag to 0,
 % it just means that the internet is out, everything else will run & save fine
 %------------
-send_evernote_append('Test', Notebook, '', [timetag 'email test'] ,[])
-email=1; % indicator to control whether to email figs to evernote (1=email, 0=don't)
+% send_evernote_append('Test', Notebook, '', [timetag 'email test'] ,[])
+email=0; % indicator to control whether to email figs to evernote (1=email, 0=don't)
 
 % Define file where raw data will save, organizing in a folder by date
 %-----------
